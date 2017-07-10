@@ -1,0 +1,137 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDA44DB1-5679-4BD2-9326-898EFCC1FCD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>BankaiBasic</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Bankai</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.2.0.3545, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>packages\xunit.assert.2.2.0\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.2.0.3545, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>packages\xunit.extensibility.core.2.2.0\lib\netstandard1.1\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.2.0.3545, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>packages\xunit.extensibility.execution.2.2.0\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="01_NumberOperations.cs" />
+    <Compile Include="02_StringAndCharOperations.cs" />
+    <Compile Include="03_ArrayOperations.cs" />
+    <Compile Include="04_VariablesAndParameters.cs" />
+    <Compile Include="05_Classes.cs" />
+    <Compile Include="06_Inheritance.cs" />
+    <Compile Include="07_Interfaces.cs" />
+    <Compile Include="08_ObjectTypes.cs" />
+    <Compile Include="10_NestedTypes.cs" />
+    <Compile Include="11_Enums.cs" />
+    <Compile Include="12_GenericsRelated.cs" />
+    <Compile Include="13_DelegatesRelated.cs" />
+    <Compile Include="14_AnonymousMethod.cs" />
+    <Compile Include="15_Closure.cs" />
+    <Compile Include="16_EventsRelated.cs" />
+    <Compile Include="17_TryStatement.cs" />
+    <Compile Include="18_Disposable.cs" />
+    <Compile Include="19_Enumeration.cs" />
+    <Compile Include="20_NullableTypes.cs" />
+    <Compile Include="21_ImplicitAndExplicitConversions.cs" />
+    <Compile Include="22_ExtensionMethod.cs" />
+    <Compile Include="23_AnnonymousTypes.cs" />
+    <Compile Include="24_LinqBasics.cs" />
+    <Compile Include="Common\AutoPropertyDemoClass.cs" />
+    <Compile Include="Common\BaseKeywordDemoClass.cs" />
+    <Compile Include="Common\BasicEventDemoClass.cs" />
+    <Compile Include="Common\BasicGenericDemoClass.cs" />
+    <Compile Include="Common\ConstructorOverloadingDemoClass.cs" />
+    <Compile Include="Common\CovariantContravariantDemoClass.cs" />
+    <Compile Include="Common\CustomConversionDemoClass.cs" />
+    <Compile Include="Common\CustomizeEventAccessorDemoClass.cs" />
+    <Compile Include="Common\CustomizeEventArgsDemoClass.cs" />
+    <Compile Include="Common\CustomizePropertyDemoClass.cs" />
+    <Compile Include="Common\DefaultValueDemoClass.cs" />
+    <Compile Include="Common\DelegatesDemo.cs" />
+    <Compile Include="Common\DelegateSubtractionDemoClass.cs" />
+    <Compile Include="Common\DelegateTypeVarianceDemoClass.cs" />
+    <Compile Include="Common\DisposableDemoClass.cs" />
+    <Compile Include="Common\DisposableWithTracingDemoClass.cs" />
+    <Compile Include="Common\EnumDemo.cs" />
+    <Compile Include="Common\ExplicitInterfaceImplDemo.cs" />
+    <Compile Include="Common\ExtensionMethodDemoClass.cs" />
+    <Compile Include="Common\GenericMethodDemoClass.cs" />
+    <Compile Include="Common\GenericTypeStaticDataDemoClass.cs" />
+    <Compile Include="Common\HideMemberDemoClass.cs" />
+    <Compile Include="Common\ImplicitConstructorClassDemo.cs" />
+    <Compile Include="Common\ImplIteratorUsingYieldDemoClass.cs" />
+    <Compile Include="Common\IndexerDemoClass.cs" />
+    <Compile Include="Common\InheritanceConstructorCallDemoClass.cs" />
+    <Compile Include="Common\InheritMemberAccessDemoClass.cs" />
+    <Compile Include="Common\MethodOverloadDemoClass.cs" />
+    <Compile Include="Common\MulticastDelegateDemoClass.cs" />
+    <Compile Include="Common\MulticastFuncDelegateDemoClass.cs" />
+    <Compile Include="Common\MultipleInterfaceImplDemo.cs" />
+    <Compile Include="Common\NestedTypeDemoClass.cs" />
+    <Compile Include="Common\ObjectInitializerDemoClass.cs" />
+    <Compile Include="Common\ParameterizedConstructorClassDemo.cs" />
+    <Compile Include="Common\PartialClassDemoClass.cs" />
+    <Compile Include="Common\PolymorphismDemoClass.cs" />
+    <Compile Include="Common\RefTypeClass.cs" />
+    <Compile Include="Common\RestrictedGenericDemoClasses.cs" />
+    <Compile Include="Common\StaticConstructorDemoClass.cs" />
+    <Compile Include="Common\TryCatchDemoClass.cs" />
+    <Compile Include="Common\ValueTypeDemoClass.cs" />
+    <Compile Include="Extensions\DelegateRunner.cs" />
+    <Compile Include="Extensions\SimpleCSharpCompiler.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

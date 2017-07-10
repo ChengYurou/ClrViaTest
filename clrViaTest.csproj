@@ -1,0 +1,183 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39EA7C6A-182E-40A7-9ABE-D39CCD7DA65D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ClassLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>clrViaTest</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="src\BanKai.Basic\BanKai.Basic.csproj" />
+    <Content Include="src\BanKai.Progress.LinqRelated\BanKai.Progress.LinqRelated.csproj" />
+    <Content Include="src\packages\xunit.1.9.2\lib\net20\xunit.dll" />
+    <Content Include="src\packages\xunit.1.9.2\lib\net20\xunit.runner.msbuild.dll" />
+    <Content Include="src\packages\xunit.1.9.2\lib\net20\xunit.runner.tdnet.dll" />
+    <Content Include="src\packages\xunit.1.9.2\lib\net20\xunit.runner.utility.dll" />
+    <Content Include="src\packages\xunit.1.9.2\lib\net20\xunit.xml" />
+    <Content Include="src\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll" />
+    <Content Include="src\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.xml" />
+    <Content Include="src\src.sln" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\objects\pack\pack-5061c39c833ebaa56391d956d721f889eedda52f.idx" />
+    <None Include=".git\objects\pack\pack-5061c39c833ebaa56391d956d721f889eedda52f.pack" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include="README.md" />
+    <None Include="src\BanKai.Basic\packages.config" />
+    <None Include="src\BanKai.Progress.LinqRelated\packages.config" />
+    <None Include="src\packages\repositories.config" />
+    <None Include="src\packages\xunit.1.9.2\lib\net20\xunit.dll.tdnet" />
+    <None Include="src\packages\xunit.1.9.2\xunit.1.9.2.nupkg" />
+    <None Include="src\packages\xunit.1.9.2\xunit.1.9.2.nuspec" />
+    <None Include="src\packages\xunit.extensions.1.9.2\xunit.extensions.1.9.2.nupkg" />
+    <None Include="src\packages\xunit.extensions.1.9.2\xunit.extensions.1.9.2.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\BanKai.Basic\01_NumberOperations.cs" />
+    <Compile Include="src\BanKai.Basic\02_StringAndCharOperations.cs" />
+    <Compile Include="src\BanKai.Basic\03_ArrayOperations.cs" />
+    <Compile Include="src\BanKai.Basic\04_VariablesAndParameters.cs" />
+    <Compile Include="src\BanKai.Basic\05_Classes.cs" />
+    <Compile Include="src\BanKai.Basic\06_Inheritance.cs" />
+    <Compile Include="src\BanKai.Basic\07_Interfaces.cs" />
+    <Compile Include="src\BanKai.Basic\08_ObjectTypes.cs" />
+    <Compile Include="src\BanKai.Basic\10_NestedTypes.cs" />
+    <Compile Include="src\BanKai.Basic\11_Enums.cs" />
+    <Compile Include="src\BanKai.Basic\12_GenericsRelated.cs" />
+    <Compile Include="src\BanKai.Basic\13_DelegatesRelated.cs" />
+    <Compile Include="src\BanKai.Basic\14_AnonymousMethod.cs" />
+    <Compile Include="src\BanKai.Basic\15_Closure.cs" />
+    <Compile Include="src\BanKai.Basic\16_EventsRelated.cs" />
+    <Compile Include="src\BanKai.Basic\17_TryStatement.cs" />
+    <Compile Include="src\BanKai.Basic\18_Disposable.cs" />
+    <Compile Include="src\BanKai.Basic\19_Enumeration.cs" />
+    <Compile Include="src\BanKai.Basic\20_NullableTypes.cs" />
+    <Compile Include="src\BanKai.Basic\21_ImplicitAndExplicitConversions.cs" />
+    <Compile Include="src\BanKai.Basic\22_ExtensionMethod.cs" />
+    <Compile Include="src\BanKai.Basic\23_AnnonymousTypes.cs" />
+    <Compile Include="src\BanKai.Basic\24_LinqBasics.cs" />
+    <Compile Include="src\BanKai.Basic\Common\AutoPropertyDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\BaseKeywordDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\BasicEventDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\BasicGenericDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ConstructorOverloadingDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\CovariantContravariantDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\CustomConversionDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\CustomizeEventAccessorDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\CustomizeEventArgsDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\CustomizePropertyDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\DefaultValueDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\DelegatesDemo.cs" />
+    <Compile Include="src\BanKai.Basic\Common\DelegateSubtractionDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\DelegateTypeVarianceDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\DisposableDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\DisposableWithTracingDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\EnumDemo.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ExplicitInterfaceImplDemo.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ExtensionMethodDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\GenericMethodDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\GenericTypeStaticDataDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\HideMemberDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ImplicitConstructorClassDemo.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ImplIteratorUsingYieldDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\IndexerDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\InheritanceConstructorCallDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\InheritMemberAccessDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\MethodOverloadDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\MulticastDelegateDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\MulticastFuncDelegateDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\MultipleInterfaceImplDemo.cs" />
+    <Compile Include="src\BanKai.Basic\Common\NestedTypeDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ObjectInitializerDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ParameterizedConstructorClassDemo.cs" />
+    <Compile Include="src\BanKai.Basic\Common\PartialClassDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\PolymorphismDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\RefTypeClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\RestrictedGenericDemoClasses.cs" />
+    <Compile Include="src\BanKai.Basic\Common\StaticConstructorDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\TryCatchDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Common\ValueTypeDemoClass.cs" />
+    <Compile Include="src\BanKai.Basic\Extensions\DelegateRunner.cs" />
+    <Compile Include="src\BanKai.Basic\Extensions\SimpleCSharpCompiler.cs" />
+    <Compile Include="src\BanKai.Basic\Extensions\TypeExtensions.cs" />
+    <Compile Include="src\BanKai.Basic\Properties\AssemblyInfo.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\AverageForList.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\CollectEvenNumber.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\DividableInteger.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\EvenNumberSequence.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\FlatenMultidimensionalArray.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\FlattenIntersectionFacts.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\GenerateSequenceIntervalFacts.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\GroupingNumbers.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\LastElement.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\MakeIntersection.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\MapToEven.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\MultiplesOfThree.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\NumberSequence.cs" />
+    <Compile Include="src\BanKai.Progress.LinqRelated\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
