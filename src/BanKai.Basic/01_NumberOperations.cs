@@ -207,7 +207,7 @@ namespace BanKai.Basic
         public void should_do_complement_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = -16;
+            const int expectedResult = unchecked((int)0xfffffff0);
 
             Assert.Equal(expectedResult, ~0xf);
         }
@@ -216,7 +216,7 @@ namespace BanKai.Basic
         public void should_do_and_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = 48;
+            const int expectedResult = 0x30;
 
             Assert.Equal(expectedResult, (0xf0 & 0x33));
         }
@@ -225,7 +225,7 @@ namespace BanKai.Basic
         public void should_do_or_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = 243;
+            const int expectedResult = 0xf3;
 
             Assert.Equal(expectedResult, (0xf0 | 0x33));
         }
@@ -243,7 +243,7 @@ namespace BanKai.Basic
         public void should_do_shift_left_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = 128;
+            const int expectedResult = 0x80;
 
             Assert.Equal(expectedResult, (0x20 << 2));
         }
@@ -252,7 +252,7 @@ namespace BanKai.Basic
         public void should_do_shift_right_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = 16;
+            const int expectedResult = 0x10;
 
             Assert.Equal(expectedResult, (0x20 >> 1));
         }
@@ -277,7 +277,7 @@ namespace BanKai.Basic
             const double denominator = 0.0;
 
             // change "default(double)" to correct value.
-            const double expectedResult = default(double);
+            const double expectedResult = Double.PositiveInfinity;
 
             Assert.Equal(expectedResult, (numerator / denominator));
         }
@@ -288,7 +288,7 @@ namespace BanKai.Basic
             const double numerator = 0;
             const double denominator = 0;
 
-            const double expectedResult = default(double);
+            const double expectedResult = Double.NaN;
 
             Assert.Equal(expectedResult, (numerator / denominator));
         }
