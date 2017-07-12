@@ -52,8 +52,8 @@ namespace BanKai.Basic
             var arrayWithRefType = new string[10];
 
             // change the variable values in the following 2 lines to correct value.
-            const int intAtPostion3 = 0;
-            const string stringAtPosition3 = null;
+            const int intAtPostion3 = default(int);
+            const string stringAtPosition3 = default(string);
 
             Assert.Equal(intAtPostion3, arrayWithValueType[3]);
             Assert.Equal(stringAtPosition3, arrayWithRefType[3]);
