@@ -59,7 +59,7 @@ namespace BanKai.Basic
             RefTypeClass modifiedRefTypeObject = FunctionPassingRefTypeClassAsArgument(refTypeObject);
 
             // change the variable value to correct one.
-            RefTypeClass expectedResult = modifiedRefTypeObject;  //？new RefTypeClass(1)
+            RefTypeClass expectedResult = refTypeObject;
 
             Assert.Same(expectedResult, refTypeObject);
         }
