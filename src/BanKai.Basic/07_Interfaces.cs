@@ -10,8 +10,8 @@ namespace BanKai.Basic
         public void should_implement_more_than_one_interface()
         {
             var duck = new Duck();
-            var castToMoveable = (IMoveable) duck;
-            var castToTalkable = (ITalkable) duck;
+            var castToMoveable = (IMoveable)duck;
+            var castToTalkable = (ITalkable)duck;
 
             castToMoveable.MoveTo(2, 3);
 
@@ -19,8 +19,8 @@ namespace BanKai.Basic
             string duckTalk = castToTalkable.Talk();
 
             // change the variable values for the following 2 lines to fix the test.
-            const string expectedDuckPosition = "";
-            const string expectedTalk = "";
+            const string expectedDuckPosition = "You are at (2, 3)";
+            const string expectedTalk = "Ga, ga, ...";
 
             Assert.Equal(expectedDuckPosition, duckPosition);
             Assert.Equal(expectedTalk, duckTalk);
@@ -33,10 +33,10 @@ namespace BanKai.Basic
 
             var hasWriteMethod = readOnlyStreamWithWriteExplicitlyImpl.HasInstanceMethod(
                 "Write",
-                new[] {typeof(string)});
+                new[] { typeof(string) });
 
             // change the variable value to fix the test.
-            const bool expectedHasWriteMethod = true;
+            const bool expectedHasWriteMethod = false;
 
             Assert.Equal(expectedHasWriteMethod, hasWriteMethod);
         }
@@ -45,13 +45,13 @@ namespace BanKai.Basic
         public void should_invoke_explicitly_implemented_method_by_original_interface()
         {
             var readOnlyStreamWithWriteExplicitlyImpl = new ReadOnlyStream();
-            var castedToInterface = (ITextStream) readOnlyStreamWithWriteExplicitlyImpl;
+            var castedToInterface = (ITextStream)readOnlyStreamWithWriteExplicitlyImpl;
 
             castedToInterface.Write("Hehe");
             var readResult = readOnlyStreamWithWriteExplicitlyImpl.Read();
 
             // change the variable value to fix the test.
-            const string expectedReadResult = "";
+            const string expectedReadResult = "Hehe";
 
             Assert.Equal(expectedReadResult, readResult);
         }
