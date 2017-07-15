@@ -1,6 +1,5 @@
 ﻿using Xunit;
 using System.Text.RegularExpressions;
-using System;
 using System.Linq;
 
 namespace BanKai.Progress.LinqRelated
