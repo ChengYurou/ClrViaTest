@@ -1,4 +1,7 @@
 ﻿using Xunit;
+using System.Text.RegularExpressions;
+using System;
+using System.Linq;
 
 namespace BanKai.Progress.LinqRelated
 {
@@ -15,7 +18,17 @@ namespace BanKai.Progress.LinqRelated
 
         static int CalculateAverage(string listString)
         {
-            throw new System.NotImplementedException();
+            string[] stringArray = Regex.Split(listString, "->");
+            int arrryLenth = stringArray.Length;
+            var numberArray = new int[arrryLenth];
+
+            for(int index = 0; index < arrryLenth; index++)
+            {
+                numberArray[index] = int.Parse(stringArray[index]);
+            }
+
+            return numberArray.Sum(i => i)/numberArray.Length;
+            //throw new System.NotImplementedException();
         }
     }
 }
