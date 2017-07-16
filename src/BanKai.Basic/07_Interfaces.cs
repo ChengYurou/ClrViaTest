@@ -13,7 +13,7 @@ namespace BanKai.Basic
             var castToMoveable = (IMoveable)duck;
             var castToTalkable = (ITalkable)duck;
 
-            castToMoveable.MoveTo(2, 3);
+            castToMoveable.MoveTo(2, 3);  //MoveTo被Duck实现
 
             string duckPosition = duck.WhereAmI;
             string duckTalk = castToTalkable.Talk();
@@ -33,7 +33,7 @@ namespace BanKai.Basic
 
             var hasWriteMethod = readOnlyStreamWithWriteExplicitlyImpl.HasInstanceMethod(
                 "Write",
-                new[] { typeof(string) });
+                new[] { typeof(string) });  //是否有write实例方法，write由ITextStream显式实现
 
             // change the variable value to fix the test.
             const bool expectedHasWriteMethod = false;
@@ -45,7 +45,7 @@ namespace BanKai.Basic
         public void should_invoke_explicitly_implemented_method_by_original_interface()
         {
             var readOnlyStreamWithWriteExplicitlyImpl = new ReadOnlyStream();
-            var castedToInterface = (ITextStream)readOnlyStreamWithWriteExplicitlyImpl;
+            var castedToInterface = (ITextStream)readOnlyStreamWithWriteExplicitlyImpl;  //write由ITextStream显式实现
 
             castedToInterface.Write("Hehe");
             var readResult = readOnlyStreamWithWriteExplicitlyImpl.Read();

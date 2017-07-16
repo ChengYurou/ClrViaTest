@@ -18,7 +18,7 @@ namespace BanKai.Basic
             // please change the variable value to fix the test.
             const string expected = "Public Property Value";
 
-            Assert.Equal(expected, demoClass.PublicProperty);
+            Assert.Equal(expected, demoClass.PublicProperty); //PublicProperty是InheritMemberAccessDemoBaseClass的实例属性
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace BanKai.Basic
             var demoClass = new PolymorphismDemoClass();
             var castToBaseClass = (PolymorphismDemoClassBase)demoClass;
 
-            string actualValue = castToBaseClass.VirtualMethod();
+            string actualValue = castToBaseClass.VirtualMethod(); //基类需方法，会调用最派生的重写方法
 
             // please change the variable value to fix the test.
             const string expected = "DerivedClass";
@@ -52,8 +52,7 @@ namespace BanKai.Basic
         public void should_return_casted_result_if_it_is_castable()
         {
             var demoClass = new PolymorphismDemoClass();
-            var castToBaseClass = demoClass as PolymorphismDemoClassBase;
-
+            var castToBaseClass = demoClass as PolymorphismDemoClassBase;  //success
             bool isNull = castToBaseClass == null;
 
             // please change the variable value to fix the test.
@@ -68,7 +67,7 @@ namespace BanKai.Basic
             var demoClass = new PolymorphismDemoClass();
             object castToObject = demoClass;
 
-            var castResult = castToObject as StringBuilder;
+            var castResult = castToObject as StringBuilder;  //faild
             bool isNull = castResult == null;
 
             // please change the variable value to fix the test.
@@ -89,7 +88,7 @@ namespace BanKai.Basic
             Assert.NotEqual(typeof(SystemException), expectedExceptionType);
             Assert.NotEqual(typeof(Exception), expectedExceptionType);
 
-            Assert.Throws(expectedExceptionType, () => (StringBuilder)castToObject);
+            Assert.Throws(expectedExceptionType, () => (StringBuilder)castToObject); //StringBuilder sealed,base:object
         }
 
         [Fact]
@@ -98,7 +97,7 @@ namespace BanKai.Basic
             var demoClass = new PolymorphismDemoClass();
             var castToBaseClass = (PolymorphismDemoClassBase)demoClass;
 
-            bool referenceEqual = ReferenceEquals(demoClass, castToBaseClass);
+            bool referenceEqual = ReferenceEquals(demoClass, castToBaseClass);  //地址相同或同为null
 
             // please change the variable value to fix the test.
             const bool expected = true;
@@ -109,7 +108,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_throw_exception_when_downcasting_fail()
         {
-            var demoClassBase = new PolymorphismDemoClassBase();
+            var demoClassBase = new PolymorphismDemoClassBase();  //base=>derived,faild
 
             // please change the variable value to fix the test.
             Type expectedExceptionType = typeof(InvalidCastException);
@@ -126,7 +125,7 @@ namespace BanKai.Basic
             var demoClass = new HideMemberDemoClass();
             var castedToBaseClass = (HideMemberDemoClassBase)demoClass;
 
-            string methodReturnValue = demoClass.MethodToHide();
+            string methodReturnValue = demoClass.MethodToHide();  //new关键字，告诉编译器隐藏基类中的MethodToHide(),避免警告
             string baseClassMethodReturnValue = castedToBaseClass.MethodToHide();
 
             // please change the following 2 variable values to fix the test.
@@ -153,7 +152,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_call_default_constructors_of_base_class()
         {
-            var demoClass = new InheritanceConstructorCallDemoClass();
+            var demoClass = new InheritanceConstructorCallDemoClass();  //先执行基类无参构造函数，在执行自己的无参构造函数
 
             string message = demoClass.ConstructorCallMessage;
 
@@ -166,7 +165,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_call_default_constructor_of_base_class_when_call_derived_ctor_with_args()
         {
-            var demoClass = new InheritanceConstructorCallDemoClass(1);
+            var demoClass = new InheritanceConstructorCallDemoClass(1);  //先执行基类无参构造函数，在执行自己的int构造函数
 
             string message = demoClass.ConstructorCallMessage;
 
@@ -179,7 +178,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_be_able_to_specify_which_base_ctor_to_call()
         {
-            var demoClass = new InheritanceConstructorCallDemoClass("1");
+            var demoClass = new InheritanceConstructorCallDemoClass("1");  // : base(int.Parse(arg))
 
             string message = demoClass.ConstructorCallMessage;
 
@@ -192,7 +191,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_be_able_to_specify_which_ctor_of_current_class_to_call()
         {
-            var demoClass = new InheritanceConstructorCallDemoClass(1, "1");
+            var demoClass = new InheritanceConstructorCallDemoClass(1, "1"); //: this(intArg)
 
             string message = demoClass.ConstructorCallMessage;
 
@@ -208,11 +207,11 @@ namespace BanKai.Basic
             var demoClass = new MethodOverloadDemoClass();
 
             string returnValueForBaseClassOverloading =
-                demoClass.Foo(new MethodOverloadBaseClass());
+                demoClass.Foo(new MethodOverloadBaseClass());  //base
             string returnValueForDerivedClassOverloading =
-                demoClass.Foo(new MethodOverloadDerivedClass());
+                demoClass.Foo(new MethodOverloadDerivedClass());  //derived
             string returnValueForCastingOverloading =
-                demoClass.Foo((MethodOverloadBaseClass)(new MethodOverloadDerivedClass()));
+                demoClass.Foo((MethodOverloadBaseClass)(new MethodOverloadDerivedClass()));  //derived=>base
 
             const string expectedBaseClassOverloadingValue = "Foo(MethodOverloadBaseClass)";
             const string expectedDerivedClassOverloadingValue = "Foo(MethodOverloadDerivedClass)";
