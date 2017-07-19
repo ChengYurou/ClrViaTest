@@ -10,12 +10,12 @@ namespace BanKai.Basic
         [Fact]
         public void should_resolve_correct_type()
         {
-            var genericObjectWithStringAsTypeArgument = new BasicGenericDemoClass<string>();
+            var genericObjectWithStringAsTypeArgument = new BasicGenericDemoClass<string>();  //类型实参：string
 
             Type valuePropertyType = genericObjectWithStringAsTypeArgument.GetPropertyType("Value");
 
             // correct the variable value to fix the test
-            Type expectedValuePropertyType = typeof(object);
+            Type expectedValuePropertyType = typeof(string);
 
             Assert.Equal(expectedValuePropertyType, valuePropertyType);
         }
@@ -23,10 +23,10 @@ namespace BanKai.Basic
         [Fact]
         public void should_restrict_to_value_type_on_type_argument()
         {
-            var demoObject = new ValueTypeRestrictedGenericDemoClass<int>();
+            var demoObject = new ValueTypeRestrictedGenericDemoClass<int>();  //where:struct值类型可作为实参
 
             // correct the variable value to fix the test
-            const int expectedInitialValue = 1;
+            const int expectedInitialValue = 0; //default<T>
 
             Assert.Equal(expectedInitialValue, demoObject.Value);
         }
@@ -34,10 +34,10 @@ namespace BanKai.Basic
         [Fact]
         public void should_restrict_to_ref_type_on_type_argument()
         {
-            var demoObject = new RefTypeRestrictedGenericDemoClass<string>();
+            var demoObject = new RefTypeRestrictedGenericDemoClass<string>(); //where:class引用类型可作为实参
 
             // correct the variable value to fix the test
-            const string expectedInitialValue = "Hello";
+            const string expectedInitialValue = null;
 
             Assert.Equal(expectedInitialValue, demoObject.Value);
         }
@@ -45,21 +45,21 @@ namespace BanKai.Basic
         [Fact]
         public void should_restrict_to_default_constructor_on_type_argument()
         {
-            var demoObject = new DefaultCtorRestrictedGenericDemoClass<SayHelloByDefault>();
+            var demoObject = new DefaultCtorRestrictedGenericDemoClass<SayHelloByDefault>(); //where:new()构造函数约束（带公共无参构造函数的类型可作为实参）
 
             // correct the variable value to fix the test
-            const string expectedStringValue = default(string);
-
+            const string expectedStringValue = "Hello";
+            //如果SayHelloByDefault类中未重写ToString方法， demoObject.Value.ToString()="BanKai.Basic.Common.SayHelloByDefault"
             Assert.Equal(expectedStringValue, demoObject.Value.ToString());
         }
 
         [Fact]
         public void should_restrict_to_interface_on_type_argument()
         {
-            var demoObject = new InterfaceRestrictedGenericDemoClass<Duck>();
+            var demoObject = new InterfaceRestrictedGenericDemoClass<Duck>();  //Duck实现了ITalkable接口
 
             // correct the variable value to fix the test
-            const string expectedStringValue = "";
+            const string expectedStringValue = "Ga, ga, ...";
 
             Assert.Equal(expectedStringValue, demoObject.ToString());
         }
@@ -67,10 +67,10 @@ namespace BanKai.Basic
         [Fact]
         public void should_automatically_resolve_parameter_type()
         {
-            string actualReturnValue = GenericMethodDemoClass.ResolvableGenericMethod(new Duck());
+            string actualReturnValue = GenericMethodDemoClass.ResolvableGenericMethod(new Duck()); //方法参数和类型参数类型相同，方法参数的类型确定，类型参数可以省略
 
             // correct the variable value to fix the test
-            const string expectedReturnValue = "";
+            const string expectedReturnValue = "ResolvableGenericMethod(T) called. T is Duck";
 
             Assert.Equal(expectedReturnValue, actualReturnValue);
         }
@@ -81,7 +81,7 @@ namespace BanKai.Basic
             string actualReturnValue = GenericMethodDemoClass.NotResolvableGenericMethod<string>();
 
             // correct the variable value to fix the test
-            const string expectedReturnValue = "";
+            const string expectedReturnValue = "NotResolvableGenericMethod() called. T is String";
 
             Assert.Equal(expectedReturnValue, actualReturnValue);
         }
@@ -90,7 +90,7 @@ namespace BanKai.Basic
         public void should_be_different_types_for_different_type_argument()
         {
             // correct the variable value to fix the test
-            const bool areEqual = true;
+            const bool areEqual = false;
 
             Assert.Equal(
                 areEqual,
@@ -105,8 +105,8 @@ namespace BanKai.Basic
             GenericTypeStaticDataDemoClass<int>.Count = 2;
 
             // correct the variable values for the following 2 lines to fix the test
-            const int expectedCountForIntClosedType = 0;
-            const int expectedCountForStringClosedType = 0;
+            const int expectedCountForIntClosedType = 2;
+            const int expectedCountForStringClosedType = 5;
 
             Assert.Equal(expectedCountForIntClosedType, GenericTypeStaticDataDemoClass<int>.Count);
             Assert.Equal(expectedCountForStringClosedType, GenericTypeStaticDataDemoClass<string>.Count);
@@ -120,7 +120,7 @@ namespace BanKai.Basic
             object value = covariantWithBaseTypeArgument.Get();
 
             // correct the variable value to fix the test
-            object expectedValue = null;
+            object expectedValue = "Hello";
 
             Assert.Equal(expectedValue, value);
         }
@@ -134,7 +134,7 @@ namespace BanKai.Basic
             contravariantWithDerivedTypeArgument.Put("Hello");
 
             // correct the variable value to fix the test
-            object expectedValue = null;
+            object expectedValue = "Hello";
 
             Assert.Equal(expectedValue, contravariantDemoObject.Get());
         }
