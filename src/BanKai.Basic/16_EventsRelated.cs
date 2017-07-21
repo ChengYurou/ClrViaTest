@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using BanKai.Basic.Common;
 using Xunit;
 
@@ -19,10 +21,10 @@ namespace BanKai.Basic
 
             demoObject.Event += eventHandler;
 
-            demoObject.TriggerEvent();
+            demoObject.TriggerEvent();  //调用OnTriggerEvent判断Event中是否包含事件处理程序，包含，触发事件
 
             // change the variable value to fix the test.
-            const bool expectedIsEventCalled = false;
+            const bool expectedIsEventCalled = true;
 
             Assert.Equal(expectedIsEventCalled, eventIsCalled);
         }
@@ -39,12 +41,12 @@ namespace BanKai.Basic
             };
 
             demoObject.Event += eventHandler;
-            demoObject.Event -= eventHandler;
+            demoObject.Event -= eventHandler;  //将事件处理程序从事件中移除，垃圾回收器才可以释放内存
 
             demoObject.TriggerEvent();
 
             // change the variable value to fix the test.
-            const bool expectedIsEventCalled = true;
+            const bool expectedIsEventCalled = false;
 
             Assert.Equal(expectedIsEventCalled, eventIsCalled);
         }
@@ -65,7 +67,7 @@ namespace BanKai.Basic
             demoObject.Greet("World");
 
             // change the variable value to fix the test.
-            const string expectedContent = "";
+            const string expectedContent = "Hello World";
 
             Assert.Equal(expectedContent, greetingContent);
         }
@@ -76,7 +78,7 @@ namespace BanKai.Basic
             var demoObject = new CustomizeEventAccessorDemoClass();
 
             // change the variable value to fix the test.
-            var expectedExceptionType = typeof(Exception);
+            var expectedExceptionType = typeof(ArgumentNullException);
 
             Assert.Throws(expectedExceptionType, () => demoObject.Event += null);
         }

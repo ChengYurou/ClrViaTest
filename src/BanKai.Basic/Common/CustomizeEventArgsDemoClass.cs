@@ -21,7 +21,7 @@ namespace BanKai.Basic.Common
         }
     }
 
-    internal class GreetingEventArgs : EventArgs
+    internal class GreetingEventArgs : EventArgs  //自定义类声明
     {
         private readonly string m_greetingContent;
 

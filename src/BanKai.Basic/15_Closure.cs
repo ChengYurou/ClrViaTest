@@ -11,16 +11,16 @@ namespace BanKai.Basic
     public class Closure
     {
         [Fact]
-        public void should_capture_outer_variable()
+        public void should_capture_outer_variable()  //capture:捕获
         {
-            int variableDeclaredOutsideAnonymousMethod = 1;
+            int variableDeclaredOutsideAnonymousMethod = 1;  //被捕获的外部参数
 
             Func<int> methodCapturingVariable = () => variableDeclaredOutsideAnonymousMethod;
 
             int returnedValue = methodCapturingVariable();
 
             // change variable value to correct test.
-            const int expectedReturnedValue = default(int);
+            const int expectedReturnedValue = 1;
 
             Assert.Equal(expectedReturnedValue, returnedValue);
         }
@@ -34,7 +34,7 @@ namespace BanKai.Basic
             methodChangeVariableValue();
 
             // change variable value to correct test.
-            const int expectedOuterVariableValue = 1;
+            const int expectedOuterVariableValue = 2;
 
             Assert.Equal(expectedOuterVariableValue, outerVariable); 
         }
@@ -55,7 +55,7 @@ namespace BanKai.Basic
                 sum += func();
             }
 
-            const int expectedSum = 3;
+            const int expectedSum = 9;
 
             Assert.Equal(expectedSum, sum);
         }
