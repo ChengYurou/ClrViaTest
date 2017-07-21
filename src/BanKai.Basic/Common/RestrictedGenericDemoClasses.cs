@@ -39,7 +39,7 @@
     {
         public override string ToString()
         {
-            var talkable = new T();
+            var talkable = new T();  //new Duck()
             return talkable.Talk();
         }
     }

@@ -39,7 +39,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_call_original_method_when_invoking_delegate()
         {
-            TransformerDelegateDemo transformer = EquivalentTransformation;
+            TransformerDelegateDemo transformer = EquivalentTransformation;  //EquivalentTransformation返回传入的参数
 
             int transformResult = transformer(2);
 

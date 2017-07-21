@@ -184,11 +184,11 @@ namespace BanKai.Basic
         [Fact]
         public void should_be_able_to_dispose_object_when_out_of_scope()
         {
-            var disposable = new DisposableDemoClass();  //分配资源
+            var disposable = new DisposableDemoClass();  //分配资源  
 
             using (disposable)  //using语句，使用资源
             {
-            }//隐式释放资源
+            }//调用DisposableDemoClass中Dispose方法，Dispose是不能抛异常的
 
             // please change variable value to correct one.
             const bool expected = true;

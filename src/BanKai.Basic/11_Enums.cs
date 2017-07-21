@@ -84,10 +84,10 @@ namespace BanKai.Basic
         [Fact]
         public void should_be_able_to_parse_enum_by_name()
         {
-            var parsedBottomEnumValue = (BorderSide)Enum.Parse(typeof(BorderSide), "Bottom");
+            var parsedBottomEnumValue = (BorderSide)Enum.Parse(typeof(BorderSide), "Bottom"); //通过value
 
             // change the variable value to fix the test.
-            const BorderSide expectedEnumValue = BorderSide.Bottom;
+            const BorderSide expectedEnumValue = BorderSide.Bottom;  
 
             Assert.Equal(expectedEnumValue, parsedBottomEnumValue);
         }
@@ -95,7 +95,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_be_able_to_parse_enum_by_value()
         {
-            var parsedBottomEnumValue = (BorderSide)Enum.Parse(typeof(BorderSide), "3");
+            var parsedBottomEnumValue = (BorderSide)Enum.Parse(typeof(BorderSide), "3");  //通过下标
 
             // change the variable value to fix the test.
             const BorderSide expectedEnumValue = BorderSide.Bottom;

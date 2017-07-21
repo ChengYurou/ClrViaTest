@@ -42,6 +42,8 @@ namespace BanKai.Basic
 
             string actualValue = castToBaseClass.VirtualMethod(); //基类需方法，会调用最派生的重写方法
 
+            //most derived是相对于实例本身的类型
+
             // please change the variable value to fix the test.
             const string expected = "DerivedClass";
 
@@ -67,7 +69,7 @@ namespace BanKai.Basic
             var demoClass = new PolymorphismDemoClass();
             object castToObject = demoClass;
 
-            var castResult = castToObject as StringBuilder;  //faild
+            var castResult = castToObject as StringBuilder;  //faild  一条继承链上是可以成功的，其他不行
             bool isNull = castResult == null;
 
             // please change the variable value to fix the test.
@@ -126,7 +128,7 @@ namespace BanKai.Basic
             var castedToBaseClass = (HideMemberDemoClassBase)demoClass;
 
             string methodReturnValue = demoClass.MethodToHide();  //new关键字，告诉编译器隐藏基类中的MethodToHide(),避免警告
-            string baseClassMethodReturnValue = castedToBaseClass.MethodToHide();
+            string baseClassMethodReturnValue = castedToBaseClass.MethodToHide(); //new会破坏它的多态
 
             // please change the following 2 variable values to fix the test.
             const string expectedMethodReturnValue = "HideMemberDemoClass::MethodToHide()";

@@ -12,7 +12,7 @@ namespace BanKai.Basic
         {
             var genericObjectWithStringAsTypeArgument = new BasicGenericDemoClass<string>();  //类型实参：string
 
-            Type valuePropertyType = genericObjectWithStringAsTypeArgument.GetPropertyType("Value");
+            Type valuePropertyType = genericObjectWithStringAsTypeArgument.GetPropertyType("Value"); //在genericObjectWithStringAsTypeArgument这个对象下"Value"的类型
 
             // correct the variable value to fix the test
             Type expectedValuePropertyType = typeof(string);
@@ -116,7 +116,7 @@ namespace BanKai.Basic
         public void should_declare_out_if_generic_type_is_covariant()
         {
             var covariantDemoObject = new CovariantContravariantDemoClass<string>("Hello");
-            ICovariantGetDemo<object> covariantWithBaseTypeArgument = covariantDemoObject;
+            ICovariantGetDemo<object> covariantWithBaseTypeArgument = covariantDemoObject;  //ICovariantGetDemo：协变接口（string=>Object）
             object value = covariantWithBaseTypeArgument.Get();
 
             // correct the variable value to fix the test
@@ -130,7 +130,7 @@ namespace BanKai.Basic
         {
             var contravariantDemoObject = new CovariantContravariantDemoClass<object>(null);
             IContravariantSetDemo<string> contravariantWithDerivedTypeArgument =
-                contravariantDemoObject;
+                contravariantDemoObject;                //IContravariantSetDemo:逆变object=>string
             contravariantWithDerivedTypeArgument.Put("Hello");
 
             // correct the variable value to fix the test

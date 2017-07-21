@@ -23,7 +23,7 @@ namespace BanKai.Basic
 
             Assert.Equal(
                 isStringInstanceObject,
-                stringInstance.GetType().IsSubclassOf(typeof(object)));
+                stringInstance.GetType().IsSubclassOf(typeof(object))); //IsSubClassOf:是否派生自...
             Assert.Equal(
                 isAnnonymousInstanceObject,
                 annonymousInstance.GetType().IsSubclassOf(typeof(object)));
@@ -77,7 +77,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_be_sealed_for_value_type()
         {
-            var customValueTypeObject = new ValueTypeDemoClass();  //struct
+            var customValueTypeObject = new ValueTypeDemoClass();  //struct:值类型都是封闭的
 
             // change the variable value to fix the test.
             const bool isValueTypeSealed = true;
@@ -111,7 +111,7 @@ namespace BanKai.Basic
         public void should_as_if_nothing_different_occurrs_when_doing_boxing_operation()
         {
             int intObject = 1;
-            var boxed = (object)intObject;
+            var boxed = (object)intObject;  //装箱
 
             // change the variable values for the following 3 lines to fix the test.
             Type expectedType = typeof(int);
@@ -133,7 +133,7 @@ namespace BanKai.Basic
 
             try
             {
-                longObject = (long)boxed;
+                longObject = (long)boxed;  
             }
             catch (Exception error)
             {
@@ -147,7 +147,7 @@ namespace BanKai.Basic
 
             Assert.Equal(isExceptionOccurred, (errorWhenCasting != null));
             Assert.Equal(expectedExceptionType, errorWhenCasting.GetType());
-            Assert.Equal(expectedLongObjectValue, longObject);
+            Assert.Equal(expectedLongObjectValue, longObject);  //未成成功转换，保有原来的值
         }
 
         [Fact]
