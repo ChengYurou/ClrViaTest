@@ -24,7 +24,7 @@ namespace BanKai.Basic
             }
 
             // change the variable value to fix the test.
-            const bool expectedCatchBlockCovered = true;
+            const bool expectedCatchBlockCovered = false;
 
             Assert.Equal(expectedCatchBlockCovered, isCatchBlockCovered);
         }
@@ -44,7 +44,7 @@ namespace BanKai.Basic
             }
 
             // change the variable value to fix the test.
-            const bool expectedCatchBlockCovered = false;
+            const bool expectedCatchBlockCovered = true;
 
             Assert.Equal(expectedCatchBlockCovered, isCatchBlockCovered);
         }
@@ -59,7 +59,7 @@ namespace BanKai.Basic
             {
                 new TryCatchDemoClass().WillThrowFormatException();
             }
-            catch (FormatException)
+            catch (FormatException)  //系统按顺序搜索catc子句列表，执行第一个匹配该异常类型对象的catch子句
             {
                 isFormatExceptionCatched = true;
             }
@@ -69,8 +69,8 @@ namespace BanKai.Basic
             }
 
             // change the variable values for the following 2 lines to fix the test.
-            const bool expectedFormatExceptionCatched = false;
-            const bool expectedExceptionCatched = true;
+            const bool expectedFormatExceptionCatched = true;
+            const bool expectedExceptionCatched = false;
 
             Assert.Equal(expectedFormatExceptionCatched, isFormatExceptionCatched);
             Assert.Equal(expectedExceptionCatched, isExceptionCatched);
@@ -85,13 +85,13 @@ namespace BanKai.Basic
             {
                 new TryCatchDemoClass().WillThrowFormatException();
             }
-            catch (SystemException)
+            catch (SystemException)  //Exception=>SystemException=>FormatException
             {
                 isCatchBlockCovered = true;
             }
 
             // change the variable value to fix the test.
-            const bool expectedCatchBlockCovered = false;
+            const bool expectedCatchBlockCovered = true;
 
             Assert.Equal(expectedCatchBlockCovered, isCatchBlockCovered);
         }
@@ -111,7 +111,7 @@ namespace BanKai.Basic
             };
 
             // change the variable value to fix the test.
-            Type expectedExceptionType = typeof(Exception);
+            Type expectedExceptionType = typeof(FormatException);  //未找到匹配的catch块，异常被抛出
 
             Assert.Throws(expectedExceptionType, () => noCatchMatched());
         }
@@ -136,7 +136,7 @@ namespace BanKai.Basic
             }
 
             // change the variable value to fix the test.            
-            const string expectedTracingMessage = "";
+            const string expectedTracingMessage = "try block executed.\r\nFormatException catched.\r\nfinally blocked executed.\r\n";
 
             Assert.Equal(expectedTracingMessage, tracer.ToString());
         }
