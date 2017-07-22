@@ -9,14 +9,14 @@ namespace BanKai.Basic
         [Fact]
         public void should_call_dispose_anyway_using_try_finally()
         {
-            var tracer = new StringBuilder();
+            var tracer = new StringBuilder();   
             DisposableWithTracingDemoClass demoDisposable = null;
 
             try
             {
                 demoDisposable = new DisposableWithTracingDemoClass(tracer);
             }
-            finally
+            finally    //确保对象demoDisposable的Dispose方法被调用
             {
                 if (demoDisposable != null)
                 {
@@ -25,7 +25,7 @@ namespace BanKai.Basic
             }
 
             // change variable value to fix test.
-            const string expectedTracingMessage = "";
+            const string expectedTracingMessage = "constructor called.\r\ndispose called.\r\n";
 
             Assert.Equal(expectedTracingMessage, tracer.ToString());
         }
@@ -41,7 +41,7 @@ namespace BanKai.Basic
             }
 
             // change the variable value to fix the test.
-            const string expectedTracingMessage = "";
+            const string expectedTracingMessage = "constructor called.\r\ndispose called.\r\n";
 
             Assert.Equal(expectedTracingMessage, tracer.ToString());
         }
