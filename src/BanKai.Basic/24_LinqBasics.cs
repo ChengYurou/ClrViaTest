@@ -20,7 +20,7 @@ namespace BanKai.Basic
 
             // please update variable value to fix the test.
             IEnumerable<string> expectedResult =
-                new[] {"a", "quick", "brown", "fox", "jumps", "over", "a", "lazy", "dog"};
+                new[] { "a", "quick", "brown", "fox", "jumps", "over", "a", "lazy", "dog" };
 
             Assert.Equal(expectedResult, filteredResult);
         }
@@ -39,7 +39,7 @@ namespace BanKai.Basic
 
             // please update variable value to fix the test.
             IEnumerable<string> expectedResult =
-                new[] {"Edogawa Conan", "Ogiso Setsuna"};
+                new[] { "Edogawa Conan", "Ogiso Setsuna" };
 
             Assert.Equal(expectedResult, projection);
         }
@@ -47,12 +47,12 @@ namespace BanKai.Basic
         [Fact]
         public void should_take_first_n_elements_using_take()
         {
-            var sequence = new[] {1, 2, 3, 4, 5};
+            var sequence = new[] { 1, 2, 3, 4, 5 };
 
             IEnumerable<int> filteredElements = sequence.Take(3);
 
             // please update variable value to fix the test.
-            IEnumerable<int> expectedResult = new[] {1, 2, 3, 4, 5};
+            IEnumerable<int> expectedResult = new[] { 1, 2, 3, 4, 5 };
 
             Assert.Equal(expectedResult, filteredElements);
         }
@@ -60,12 +60,12 @@ namespace BanKai.Basic
         [Fact]
         public void should_skip_first_n_elements_using_skip()
         {
-            var sequence = new[] {1, 2, 3, 4, 5};
+            var sequence = new[] { 1, 2, 3, 4, 5 };
 
             IEnumerable<int> filteredElements = sequence.Skip(3);
 
             // please update variable value to fix the test.
-            IEnumerable<int> expectedResult = new[] {1, 2, 3, 4, 5};
+            IEnumerable<int> expectedResult = new[] { 1, 2, 3, 4, 5 };
 
             Assert.Equal(expectedResult, filteredElements);
         }
@@ -160,7 +160,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_check_if_sequence_contains_element()
         {
-            var sequence = new[] {1, 2, 3, 4, 5};
+            var sequence = new[] { 1, 2, 3, 4, 5 };
 
             bool containsTwo = sequence.Contains(2);
             bool containsTen = sequence.Contains(10);
@@ -205,13 +205,13 @@ namespace BanKai.Basic
         [Fact]
         public void should_concat_sequences()
         {
-            var left = new[] {1, 2, 3};
-            var right = new[] {4, 5};
+            var left = new[] { 1, 2, 3 };
+            var right = new[] { 4, 5 };
 
             IEnumerable<int> concat = left.Concat(right);
 
             // please update variable value to fix the test.
-            IEnumerable<int> expectedConcatResult = new[] {1, 2, 3};
+            IEnumerable<int> expectedConcatResult = new[] { 1, 2, 3 };
 
             Assert.Equal(expectedConcatResult, concat);
         }
@@ -219,8 +219,8 @@ namespace BanKai.Basic
         [Fact]
         public void should_union_sequences()
         {
-            var left = new[] {1, 2, 3};
-            var right = new[] {4, 3, 5};
+            var left = new[] { 1, 2, 3 };
+            var right = new[] { 4, 3, 5 };
 
             IEnumerable<int> unionResult = left.Union(right);
 
@@ -261,12 +261,12 @@ namespace BanKai.Basic
         [Fact]
         public void should_get_ordered_sequence()
         {
-            var sequence = new[] {4, 2, 1, 3, 5};
+            var sequence = new[] { 4, 2, 1, 3, 5 };
 
             IOrderedEnumerable<int> orderedResult = sequence.OrderBy(item => item);
 
             // please update variable value to fix the test.
-            IEnumerable<int> expectedOrderedResult = new[] {4, 2, 1, 3, 5};
+            IEnumerable<int> expectedOrderedResult = new[] { 4, 2, 1, 3, 5 };
 
             Assert.Equal(expectedOrderedResult, orderedResult);
         }
@@ -274,7 +274,7 @@ namespace BanKai.Basic
         [Fact]
         public void should_execute_in_a_deferred_way_for_iteration_operation()
         {
-            var sequence = new List<int> {1};
+            var sequence = new List<int> { 1 };
 
             IEnumerable<string> projection =
                 sequence.Select(item => item.ToString(CultureInfo.InvariantCulture));

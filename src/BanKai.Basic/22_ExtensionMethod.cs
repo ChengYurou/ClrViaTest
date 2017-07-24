@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text;
 using BanKai.Basic.Common;
 using Xunit;
-
+using System;
 namespace BanKai.Basic
 {
     public class ExtensionMethod
@@ -16,7 +16,7 @@ namespace BanKai.Basic
             string returnValue = message.OhGodItLooksAsIfIWasAMemberOfString();
 
             // please update variable value to fix the test.
-            const string expectedReturnValue = "";
+            const string expectedReturnValue = "Hello!";
 
             Assert.Equal(expectedReturnValue, returnValue);
         }
@@ -25,12 +25,12 @@ namespace BanKai.Basic
         public void should_extend_interface()
         {
             var numberList = new List<int> {1, 2, 3};
-
+            
             IEnumerable<string> transformedResult = 
-                numberList.MySelect(number => number.ToString(CultureInfo.InvariantCulture));
+                numberList.MySelect(number => number.ToString(CultureInfo.InvariantCulture)); //??
 
             // please update variable value to fix the test.
-            IEnumerable<string> expectedResult = new[] {"hehe"};
+            IEnumerable<string> expectedResult = new[] {"1","2","3"};
 
             Assert.Equal(expectedResult, transformedResult);
         }
