@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BanKai.Progress.LinqRelated
@@ -15,7 +16,15 @@ namespace BanKai.Progress.LinqRelated
 
         static IEnumerable<int> GenerateSequenceInterval(int start, int interval)
         {
-            throw new System.NotImplementedException();
+            var result = new List<int> {start };
+
+            while (start > 0)
+            {
+                result.Add(start - interval);
+                start -= interval;
+            }
+
+            return result;
         }
     }
 }
