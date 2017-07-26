@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BanKai.Progress.LinqRelated
@@ -17,7 +18,7 @@ namespace BanKai.Progress.LinqRelated
         static T GetLastElement<T>(IEnumerable<T> collection)
         {
             // TODO: write your implementation here.
-            throw new System.NotImplementedException();
+            return collection.Last();
         }
     }
 }
