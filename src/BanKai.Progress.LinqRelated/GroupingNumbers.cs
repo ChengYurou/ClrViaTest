@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BanKai.Progress.LinqRelated
@@ -9,14 +11,18 @@ namespace BanKai.Progress.LinqRelated
         public void should_grouping_count()
         {
             int[] collection = { 1, 1, 1, 1, 2, 3, 1, 3, 4, 2, 3, 1, 3, 4, 2 };
-            int[] result = {6, 3, 4, 2};
+            int[] result = { 6, 3, 4, 2 };
 
             Assert.Equal(result, GroupingNumbersAndSort(collection));
         }
 
         static IEnumerable<int> GroupingNumbersAndSort(IEnumerable<int> collection)
         {
-            throw new System.NotImplementedException();
+            var result = collection
+                .GroupBy(item => item)
+                .Select(item => item.Count());
+
+            return result;
         }
     }
 }
