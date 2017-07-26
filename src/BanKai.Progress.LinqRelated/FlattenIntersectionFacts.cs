@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BanKai.Progress.LinqRelated
@@ -13,7 +15,7 @@ namespace BanKai.Progress.LinqRelated
             {
                 new[] {'a', 'd'}, new[] {'e', 'f'}
             };
-            char[] expected = {'a', 'd', 'e', 'f'};
+            char[] expected = { 'a', 'd', 'e', 'f' };
 
             Assert.Equal(expected, GetIntersection(collectionA, collectionB));
         }
@@ -22,7 +24,14 @@ namespace BanKai.Progress.LinqRelated
             IEnumerable<char> collectionA,
             IEnumerable<char[]> collectionB)
         {
-            throw new System.NotImplementedException();
+            var result = new List<char> { };
+
+            foreach(char[] itemB in collectionB)
+            {
+                result.AddRange(collectionA.Intersect(itemB));
+            }
+
+            return result;
         }
     }
 }
