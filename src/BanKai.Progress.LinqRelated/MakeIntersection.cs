@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BanKai.Progress.LinqRelated
@@ -17,7 +18,9 @@ namespace BanKai.Progress.LinqRelated
 
         static IEnumerable<int> GetIntersectionAndSort(IEnumerable<int> c1, IEnumerable<int> c2)
         {
-            throw new System.NotImplementedException();
+            var result = c2.Intersect(c1).Reverse();
+
+            return result;
         }
     }
 }
